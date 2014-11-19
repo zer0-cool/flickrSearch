@@ -8,7 +8,7 @@
 
 
       <div class="btn-group">
-        <input ng-blur="search()"  class="form-control frm-input" type="text" ng-model="searchTerm" />
+        <input ng-blur="search()"  class="form-control frm-input" type="text" ng-model="searchTerm" ng-keypress="catchEnter($event)"" />
         <button ng-click="search()" class="btn btn-large btn-success">SEARCH</button>
       </div>
 

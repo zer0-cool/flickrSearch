@@ -16,7 +16,7 @@ var flickr = angular.module( 'ngBoilerplate.home', [
       data:{ pageTitle: 'Home' }
     });
   })
-    
+
   .controller( 'ImgCtrl', function ImageController( $scope, flickrPhotos ) {
       $scope.currentPage = 1;
 
@@ -43,6 +43,12 @@ var flickr = angular.module( 'ngBoilerplate.home', [
       {
         $scope.currentPage++;
         $scope.search();
+      };
+
+      $scope.catchEnter = function(keyEvent) {
+        if (keyEvent.which === 13){
+          $scope.search();
+        }
       };
 
   })
