@@ -9,25 +9,14 @@ var flickr = angular.module( 'ngBoilerplate.home', [
       url: '/home',
       views: {
         "main": {
-          controller: 'HomeCtrl',
+          controller: 'ImgCtrl',
           templateUrl: 'home/home.tpl.html'
         }
       },
       data:{ pageTitle: 'Home' }
     });
   })
-
-
-  .factory('flickrPhotos', function ($resource) {
-    return $resource('https://api.flickr.com/services/rest/', { format: 'json', jsoncallback: 'JSON_CALLBACK' }, { 'load': { 'method': 'JSONP' } },
-      {});
-  })
-
-
-  .controller( 'HomeCtrl', function HomeController( $scope, flickrPhotos ) {
-
-  })
-
+    
   .controller( 'ImgCtrl', function ImageController( $scope, flickrPhotos ) {
       $scope.currentPage = 1;
 
