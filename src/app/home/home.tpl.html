@@ -26,9 +26,9 @@
         </select>
           <h4>Items Per page</h4>
           <select ng-blur="search()" ng-model="searchPerPage" class="form-control">
-            <option value="Any">100</option>
-            <option value="All">250</option>
-            <option value="All">500</option>
+            <option value="100">100</option>
+            <option value="250">250</option>
+            <option value="500">500</option>
           </select>
         </div>
 
@@ -46,21 +46,27 @@
     <div class="row" ng-show="photoReturn.length > 0">
       <div class="col-xs-12">
 
-        <pre>Page: {{currentPage}} / {{totalPages}}</pre>
+        <div class="row">
+          <div class="center-block" style="width: 70%; float: none;">
+            <pagination total-items="totalPages" page="currentPage" max-size="10" on-select-page="nextPage()" class="pagination-lg" boundary-links="true"></pagination>
+          </div>
+        </div>
 
-        <pagination total-items="totalPages" page="currentPage" max-size="10" on-select-page="nextPage()" class="pagination-sm" boundary-links="true"></pagination>
 <!--
         <pagination total-items="totalPages" ng-model="currentPage" ng-change="nextPage()" max-size="paginationMaxSize" class="pagination-lg" boundary-links="true" rotate="false" num-pages="numberOfPages"></pagination>
 -->
-        <h2><i class="fa fa-picture-o"></i> Showing pictures for:{{searchTerm}}</h2>
+        <h2><i class="fa fa-picture-o"></i> Showing pictures for: <span class="text-success">{{searchTerm}}<span></h2>
         <div >
           <div ng-repeat="item in photoReturn" style="width: 270px; height: 270px; float:left; overflow: hidden;">
-
-              <img ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}.jpg" class="img-thumbnail" style="width: 260px; overflow: hidden; height:260px; background-repeat: no-repeat;">
-              </div>
-           </div>
+              <a href="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}.jpg" target="_blank">
+                <img ng-src="https://farm{{item.farm}}.staticflickr.com/{{item.server}}/{{item.id}}_{{item.secret}}.jpg" class="img-thumbnail" style="width: 260px; overflow: hidden; height:260px; background-repeat: no-repeat;">
+              </a>
+          </div>
         </div>
+
       </div>
+
     </div>
+
   </div>
 
