@@ -30,7 +30,7 @@ var flickr = angular.module( 'ngBoilerplate.home', [
 
   .controller( 'ImgCtrl', function ImageController( $scope, flickrPhotos ) {
       $scope.currentPage = 1;
-      
+
       $scope.search = function()
       {
         $scope.photoCollection = flickrPhotos.load(
